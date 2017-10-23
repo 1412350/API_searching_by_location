@@ -1,0 +1,9 @@
+<h5> Nearby location: </h5>
+<hr>
+<% @locations.each do |location| %>
+  <%= link_to "/locations/#{location.id}", remote: true do %>
+    <i class="fa fa-map-marker">
+    <%=location.name%></i>
+    <hr>
+  <%end%>
+<%end%>

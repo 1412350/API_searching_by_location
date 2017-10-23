@@ -11,5 +11,28 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery3
 //= require turbolinks
+//= require popper
+//= require bootstrap
 //= require_tree .
+$(document).on('turbolinks:load', function()
+{
+  $('#api').submit(function(e) {
+    e.preventDefault();
+    console.log($('#lat').val());
+    console.log($('#log').val());
+    $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+ $('#place').val()+"&key=AIzaSyD6BypTbSn8dXTO8Z1h6DLmiKpj5Cl5BDc").done(function(data){
+      $.ajax({
+        url: '/location_search',
+        type: 'post',
+        data:{
+          authenticity_token: $('#authenticity_token').val(),
+          lat: data.results[0].geometry.location.lat,
+          log: data.results[0].geometry.location.lng
+        }, 
+        dataType: "script"
+      });
+    });  
+  });
+});

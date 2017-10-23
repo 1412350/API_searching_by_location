@@ -28,9 +28,11 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'instagram'
 
-gem 'haml'
-
 gem 'figaro'
+
+gem 'bootstrap', '4.0.0.beta'
+gem 'jquery-rails'
+gem "font-awesome-rails"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -40,8 +42,6 @@ gem 'figaro'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
