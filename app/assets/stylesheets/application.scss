@@ -15,14 +15,38 @@
  *= require_self
  */
  @import "bootstrap";
+ $border-color: #BFD9E9;
+ $background-color: #DDEDF7; 
+ body{
+  padding: 10px 10px;
+ }
  #map {
   height: 950px;
   width: 50%;
 }
 #place {
-  width: 200px;
+  width: 600px;
 }
 #locations_list {
   height: 860px;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+form {
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+      width: 600px;
+      height: 40px;
+      padding: 0 10px;
+      border: 1px solid $border-color;
+      border-radius: 0px;
+      font-size: 14px;
+      &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 1000px white inset !important;
+          border: 1px solid $border-color !important;
+      }
+  }
+  label {
+      opacity: 0.6;
+  }
 }
