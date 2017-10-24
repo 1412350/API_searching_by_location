@@ -20,7 +20,16 @@ class ApiController < ApplicationController
   end
   def location_recent_media
     client = Instagram.client(access_token: ENV['ACCESS_TOKEN'])
+    @videos = Array.new
+    @images = Array.new
     @medias = client.location_recent_media(params[:id])
+    @medias.each do |media|
+      if media.videos.present?
+        @videos << media
+      else
+        @images << media
+      end
+    end
     respond_to do |format|
       format.js
     end
